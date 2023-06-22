@@ -3,8 +3,9 @@ pipeline {
 
    environment {
        LISTA_CORREOS = 'kevinpavonucreativa@gmail.com'
-       CUERPO_CORREO = "El pipeline ${BUILD_URL} tuvo un resultado"
-       TITULO_CORREO = "${BUILD_URL} STATUS"
+       CUERPO_CORREO = "El pipeline ${BUILD_URL} se creo sin problemas,"
+       CUERPO_CORREO2 = "El pipeline ${BUILD_URL} experimento problemas,"
+       TITULO_CORREO = "Detalles pipeline ${BUILD_URL} STATUS"
    }
 
    stages{
@@ -32,10 +33,10 @@ pipeline {
 
    post {
        success {
-          emailext body: "${CUERPO_CORREO} exitoso", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
+          emailext body: "${CUERPO_CORREO} todo fue exitoso", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
        }
        failure {
-          emailext body: "${CUERPO_CORREO} fallido", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
+          emailext body: "${CUERPO_CORREO2} hay fallas que revisar", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
        }
        
    }
