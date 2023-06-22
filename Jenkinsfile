@@ -24,7 +24,7 @@ pipeline {
 
        stage('Mostrar Archivos'){
            steps{
-              sh 'ls -la'
+              bat 'ls -la'
            }
        }
 
