@@ -24,7 +24,7 @@ pipeline {
 
        stage('Mostrar Archivos'){
            steps{
-              bat 'ls -la'
+              sh 'ls -la'
            }
        }
 
@@ -36,7 +36,7 @@ pipeline {
           emailext body: "${CUERPO_CORREO} todo fue exitoso", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
        }
        failure {
-          emailext body: "${CUERPO_CORREO2} hay fallas que revisar", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
+          emailext body: "${CUERPO_CORREO2} hay errores que revisar", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
        }
        
    }
