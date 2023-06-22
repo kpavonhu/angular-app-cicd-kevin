@@ -28,10 +28,10 @@ pipeline {
        }
 
        //Despliegue de la aplicacion
-       stage('Despliegue de la aplicacion'){
-           steps{
-              sh 'cp dist/democlase06/* /tmp/deploy'
-           }
+       //stage('Despliegue de la aplicacion'){
+       //    steps{
+             // sh 'cp dist/democlase06/* /tmp/deploy'
+          // }
        }
    }
 
